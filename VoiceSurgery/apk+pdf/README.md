@@ -13,5 +13,3 @@ Para instalação e uso do aplicativo, siga os seguintes passos:
 4. Caso apareça novamente um alerta de perigo (Mesmo motivo do ponto 1), aguarde o tempo indicado no dispositivo, marque a opção 'Estou ciente' e prossiga a instalação.
 5. Ao abrir o aplicativo, permita que o mesmo grave áudio 'Durante o uso do app'
 6. Leia as instruções de uso ou veja o vídeo abaixo (ou no link) para demonstração.
-
-<## Desenvolvimento do app android baseado no Kivy>
