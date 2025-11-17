@@ -10,7 +10,8 @@
 </div>
 Para instalação e uso do aplicativo, siga os seguintes passos:
 
-1. Baixe os dois arquivos do link em questão (Ao baixar arquivo .apk, é indicado a possibilidade de ser um arquivo nocivo. Isto ocorre por ser um protótipo em desenvolvimento, então não há como adicionar o aplicativo na 'Play Store').
+1. Baixe os arquivos 'app-release-nov-2025-v3.apk' e 'LISTA DE VERIFICAÇÃO DA CIRURGIA SEGURA3.pdf' clicando nos respectivos nomes e, em seguida, em '⋮' > 'Download' em cada página.
+OBS: Ao baixar arquivo com terminação '.apk', é indicado a possibilidade de ser um arquivo nocivo. Isto ocorre por ser um protótipo em desenvolvimento, então não há como adicionar o aplicativo na 'Play Store'.
 2. No gerenciador de arquivos, vá ao diretório de 'Download', clique no arquivo .apk. Aparecerá um alerta sobre instalação de apps de fontes desconhecidas. Pressione o botão 'Configurações' e habilite a opção 'Permitir desta fonte'.
 3. Aparecerá o nome do aplicativo uma pergunta sobre a instalação. Clique em 'Instalar'
 4. Caso apareça novamente um alerta de perigo (Mesmo motivo do ponto 1), aguarde o tempo indicado no dispositivo, marque a opção 'Estou ciente' e prossiga a instalação.
