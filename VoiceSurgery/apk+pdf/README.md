@@ -15,4 +15,6 @@ Para instalação e uso do aplicativo, siga os seguintes passos:
 3. Aparecerá o nome do aplicativo uma pergunta sobre a instalação. Clique em 'Instalar'
 4. Caso apareça novamente um alerta de perigo (Mesmo motivo do ponto 1), aguarde o tempo indicado no dispositivo, marque a opção 'Estou ciente' e prossiga a instalação.
 5. Ao abrir o aplicativo, permita que o mesmo grave áudio 'Durante o uso do app'
-6. Leia as instruções de uso ou acesse este <a href="https://www.youtube.com/watch/YpsxMtFZqVU" target="_blank" rel="noopener noreferrer">link</a> para assistir o vídeo com a demonstração.
+6. Leia as instruções de uso ou veja o vídeo abaixo para demonstração.
+
+🎬 [Clique aqui para baixar o vídeo de demonstração](https://www.youtube.com/watch/YpsxMtFZqVU)
