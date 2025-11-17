@@ -46,5 +46,7 @@
         android:id="@+id/btn_next"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Próxima" />
+        android:text="Próxima"
+        android:layout_marginBottom="48dp"
+        />
 </LinearLayout>

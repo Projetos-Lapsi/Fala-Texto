@@ -1,22 +1,28 @@
 package ufcg.example.voicesurgery
 
 import android.app.AlertDialog
+import android.net.Uri
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.FrameLayout
 import android.widget.TextView
 import android.widget.Toast
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import ufcg.example.voicesurgery.R
 import ufcg.example.voicesurgery.data.AuthRepository
+import ufcg.example.voicesurgery.data.PdfUploadRepository
 import ufcg.example.voicesurgery.services.VoiceCommandProcessor
 import ufcg.example.voicesurgery.services.VoiceRecognizer
 import ufcg.example.voicesurgery.ui.AnswerExtractor
 import ufcg.example.voicesurgery.ui.QuestionViewFactory
 import ufcg.example.voicesurgery.utils.CsvDataSaver
+import ufcg.example.voicesurgery.utils.FileUtil
 import ufcg.example.voicesurgery.utils.PermissionManager
 import ufcg.example.voicesurgery.viewmodel.QuizStateManager
+import ufcg.example.voicesurgery.ui.PdfFlowManager
+import java.io.File
 
 class MainActivity : AppCompatActivity() {
     annotation class LoginResponse
@@ -41,6 +47,54 @@ class MainActivity : AppCompatActivity() {
     private lateinit var jwtToken: String
     private val authRepository = AuthRepository() // Crie uma instância do repositório
 
+    //private lateinit var dataSaver: CsvDataSaver
+    //private lateinit var pdfUploader: PdfUploadRepository
+
+    // --- VARIÁVEIS DE ESTADO ---
+
+    //private var latestCsvFile: File? = null // Para guardar o CSV entre os passo
+    /*
+    // --- O SELETOR DE PDF FICA NA ACTIVITY ---
+    private val pdfPickerLauncher = registerForActivityResult(
+        ActivityResultContracts.GetContent()
+    ) { uri: Uri? ->
+        if (uri == null) {
+            textView.text = "Seleção de PDF cancelada."
+            return@registerForActivityResult
+        }
+
+        // 1. Verificamos se temos o CSV salvo
+        val csvFile = latestCsvFile
+        if (csvFile == null) {
+            textView.text = "Erro: Arquivo CSV não encontrado."
+            return@registerForActivityResult
+        }
+
+        // 2. Copiamos o PDF para um arquivo local
+        textView.text = "Processando PDF..."
+        val pdfFile = FileUtil.copyPdfToAppStorage(this, uri)
+        if (pdfFile == null) {
+            textView.text = "Erro ao processar o PDF selecionado."
+            return@registerForActivityResult
+        }
+
+        // 3. Temos os dois arquivos! Hora de fazer o upload.
+        textView.text = "Enviando arquivos..."
+        pdfUploader.uploadFiles(jwtToken, csvFile, pdfFile, object : PdfUploadRepository.UploadCallback {
+            override fun onSuccess(filePath: String) {
+                textView.text = filePath // Ex: "PDF salvo em: /.../preenchido.pdf"
+            }
+
+            override fun onError(message: String) {
+                textView.text = message // Ex: "Erro na resposta: 404"
+            }
+        })
+    } as (Uri?) -> Unit
+    */
+    private lateinit var pdfManager: PdfFlowManager
+
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -49,6 +103,17 @@ class MainActivity : AppCompatActivity() {
         viewFactory = QuestionViewFactory(this)
         dataSaver = CsvDataSaver(this)
         voiceRecognizer = VoiceRecognizer(this)
+        // Passamos 'this' (activity), o repositório e uma função lambda para atualizar o texto
+        val uploadRepository = PdfUploadRepository(this)
+
+        pdfManager = PdfFlowManager(
+            activity = this,
+            uploadRepository = uploadRepository,
+            onStatusUpdate = { mensagem ->
+                // Esta função roda sempre que o Manager quiser falar algo
+                textView.text = mensagem
+            }
+        )
 
         // Encontra Views
         textView = findViewById(R.id.textView)
@@ -148,9 +213,24 @@ class MainActivity : AppCompatActivity() {
     private fun showQuizFinishedDialog() {
         AlertDialog.Builder(this)
             .setTitle("Fim das perguntas")
-            .setMessage("Você completou todas as perguntas!")
-            .setPositiveButton("Salvar e Recomeçar") { _, _ ->
-                dataSaver.saveAnswers(stateManager.getFormattedAnswers())
+            .setMessage("Você completou todas as perguntas!\nSalve o formulário para anexar o PDF.")
+            .setPositiveButton("Salvar e Anexar PDF") { _, _ ->
+
+                dataSaver.saveAnswers(stateManager.getFormattedAnswers()) { savedFile ->
+                    if (savedFile != null) {
+
+                        // 3. Configure o Manager com os dados atuais
+                        pdfManager.currentCsvFile = savedFile
+                        pdfManager.currentJwtToken = jwtToken
+
+                        // 4. Inicie a seleção (Isso substitui abrirSeletorDePdf)
+                        pdfManager.startPdfSelection()
+
+                    } else {
+                        textView.text = "Falha ao salvar CSV. Processo cancelado."
+                    }
+                }
+
                 stateManager.reset()
                 showCurrentQuestion()
             }
@@ -187,6 +267,7 @@ class MainActivity : AppCompatActivity() {
 
         alert.show()
     }
+
 
     override fun onDestroy() {
         super.onDestroy()
