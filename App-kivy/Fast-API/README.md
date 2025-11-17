@@ -1,7 +1,12 @@
 [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](LICENSE)
 
 # Fala-Texto
+
+<div align="center">
+  <img width="350" height="2000" src="https://github.com/user-attachments/assets/1d1e4d24-db10-4e1a-8598-04288cc1a91a" alt="Imagem1">
+</div>
 Este documento instrui como implementar o serviço de preenchimento de formulários em um servidor Ubuntu v20.04+ com Gpu NVIDIA e seus drivers. 
+
 
 ## Pré-requisitos:
 - Ambiente linux: Ubuntu
@@ -88,6 +93,7 @@ sudo ufw status
 Agora, mova o arquivo 'Processo', que contém toda a configuração necessária para o Nginx expor o serviço para o domínio público, para esse diretório: 
 ```bash
 sudo mv endereço-de-origem/Processo /etc/nginx/sites-available/Processo
+sudo ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/
 ```
 
 Consolidando essas configurações:
