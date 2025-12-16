@@ -12,13 +12,30 @@ object QuestionRepository {
 
             CheckboxQuestion("Paciente confirmou:", listOf("Identidade", "Sítio Cirúrgico correto", "Procedimento", "Consentimento")),
             MultipleChoiceQuestion("Sítio demarcado (lateralidade):", listOf("Sim", "Não", "Não se aplica")),
-            CheckboxQuestion("Verificação da segurança anestésica:", listOf("Montagem da SO de acordo com o procedimento", "Material anestésico disponível, revisados e funcionantes")),
-            TextInputQuestion("Verificação da segurança anestésica (Outro):"),
+
+            //CheckboxQuestion("Verificação da segurança anestésica:", listOf("Montagem da SO de acordo com o procedimento", "Material anestésico disponível, revisados e funcionantes")),
+            //TextInputQuestion("Verificação da segurança anestésica (Outro):"),
+            CheckboxQuestion2(
+                "Verificação da segurança anestésica:",
+                listOf(
+                    "Montagem da SO de acordo com o procedimento",
+                    "Material anestésico disponível, revisados e funcionantes"
+                ),
+                listOf(TextInputQuestion("Outro:"))),
+
             MultipleChoiceQuestion("Via aérea difícil/broncoaspiração:", listOf("Não", "Sim e equipamento/assistência disponíveis")),
             CheckboxQuestion("Risco de grande perda sanguínea superior a 500 ml ou mais 7 ml/kg em crianças:", listOf("Sim", "Não", "Reserva de sangue disponível")),
             CheckboxQuestion("Acesso venoso adequado e pérvio:", listOf("Sim", "Não", "Providenciado na SO")),
-            MultipleChoiceQuestion("Histórico de reação alérgica:", listOf("Sim", "Não")),
-            TextInputQuestion("Qual?:"),
+
+            //MultipleChoiceQuestion("Histórico de reação alérgica:", listOf("Sim", "Não")),
+            //TextInputQuestion("Qual?:"),
+            MultipleChoiceQuestion2(
+                "Histórico de reação alérgica:",
+                listOf("Sim", "Não"),
+                listOf(TextInputQuestion("Qual?"))
+            ),
+
+
             SalvaTempo("Antes da Incisão Cirúrgica"),
 
             MultipleChoiceQuestion("Apresentação oral de cada membro da equipe pelo nome e função:", listOf("Sim", "Não")),
@@ -33,19 +50,49 @@ object QuestionRepository {
             SalvaTempo("Antes da Saída do Paciente da Sala de Cirurgia"),
 
             MultipleChoiceQuestion("Confirmação do procedimento realizado.", listOf("Sim", "Não")),
-            MultipleChoiceQuestion("Contagem de compressas.", listOf("Sim", "Não", "Não se aplica")),
-            TextInputQuestion("Compressas entregues:"),
-            TextInputQuestion("Compressas conferidas:"),
-            MultipleChoiceQuestion("Contagem de instrumentos.", listOf("Sim", "Não", "Não se aplica")),
-            TextInputQuestion("Instrumentos entregues:"),
-            TextInputQuestion("Instrumentos conferidos:"),
-            MultipleChoiceQuestion("Contagem de agulhas.", listOf("Sim", "Não", "Não se aplica")),
-            TextInputQuestion("Agulhas entregues:"),
-            TextInputQuestion("Agulhas conferidas:"),
-            MultipleChoiceQuestion("Amostra cirúrgica identificada adequadamente:", listOf("Sim", "Não", "Não se aplica")),
-            TextInputQuestion("Requisição completa:"),
-            MultipleChoiceQuestion("Problema com equipamentos que deve ser solucionado:", listOf("Sim", "Não", "Não se aplica")),
-            TextInputQuestion("Comunicado a enfermeira para providenciar a solução:"),
+            //MultipleChoiceQuestion("Contagem de compressas.", listOf("Sim", "Não", "Não se aplica")),
+            //TextInputQuestion("Compressas entregues:"),
+            //TextInputQuestion("Compressas conferidas:"),
+            MultipleChoiceQuestion2(
+                "Contagem de compressas.",
+                listOf("Sim", "Não", "Não se aplica"),
+                listOf(TextInputQuestion("Compressas entregues:"), TextInputQuestion("Compressas conferidas:"))
+            ),
+            //MultipleChoiceQuestion("Contagem de instrumentos.", listOf("Sim", "Não", "Não se aplica")),
+            //TextInputQuestion("Instrumentos entregues:"),
+            //TextInputQuestion("Instrumentos conferidos:"),
+            MultipleChoiceQuestion2(
+                "Contagem de instrumentos.",
+                listOf("Sim", "Não", "Não se aplica"),
+                listOf(TextInputQuestion("Instrumentos entregues:"), TextInputQuestion("Instrumentos conferidos:"))
+            ),
+            //MultipleChoiceQuestion("Contagem de agulhas.", listOf("Sim", "Não", "Não se aplica")),
+            //TextInputQuestion("Agulhas entregues:"),
+            //TextInputQuestion("Agulhas conferidas:"),
+            MultipleChoiceQuestion2(
+                "Contagem de agulhas.",
+                listOf("Sim", "Não", "Não se aplica"),
+                listOf(TextInputQuestion("Agulhas entregues:"), TextInputQuestion("Agulhas conferidas:"))
+            ),
+            //MultipleChoiceQuestion("Amostra cirúrgica identificada adequadamente:", listOf("Sim", "Não", "Não se aplica")),
+            //TextInputQuestion("Requisição completa:"),
+            MultipleChoiceQuestion2(
+                "Amostra cirúrgica identificada adequadamente:",
+                listOf("Sim", "Não", "Não se aplica"),
+                listOf(TextInputQuestion("Requisição completa:"))
+            ),
+            //MultipleChoiceQuestion("Problema com equipamentos que deve ser solucionado:", listOf("Sim", "Não", "Não se aplica")),
+            //TextInputQuestion("Comunicado a enfermeira para providenciar a solução:"),
+            MultipleChoiceQuestion2(
+                "Problema com equipamentos que deve ser solucionado::",
+                listOf("Sim", "Não", "Não se aplica"),
+                listOf(TextInputQuestion("Comunicado a enfermeira para providenciar a solução:"))
+            ),
+            CheckboxQuestion2(
+                "Recomendações importantes na recuperação pós-anestésica e pós-operatória do paciente:",
+                listOf(),
+                listOf(TextInputQuestion("Cirurgião:"), TextInputQuestion("Anestesista:"), TextInputQuestion("Enfermagem:"))
+            ),
             TextInputQuestion("Recomendações Cirurgião:"),
             TextInputQuestion("Recomendações Anestesista:"),
             TextInputQuestion("Recomendações Enfermagem:"),

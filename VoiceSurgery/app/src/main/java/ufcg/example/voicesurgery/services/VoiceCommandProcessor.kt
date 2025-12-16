@@ -78,10 +78,21 @@ class VoiceCommandProcessor {
             questionTitle.startsWith("Histórico de reação", true) -> {
                 if (command.contains("não", true)) marcarRadio(view, "Não")
                 else if (command.contains("sim", true)) marcarRadio(view, "Sim")
+
+                else {
+                    val input1 = view.findViewById<EditText>(R.id.input_answer1)
+                    input1?.setText(command)
+                }
+            }
+            /*
+            questionTitle.startsWith("Histórico de reação", true) -> {
+                if (command.contains("não", true)) marcarRadio(view, "Não")
+                else if (command.contains("sim", true)) marcarRadio(view, "Sim")
             }
 
             questionTitle.endsWith("Qual?:", true) ->
                 input?.setText(command)
+            */
 
             questionTitle.startsWith("Apresentação oral de cada", true) -> {
                 if (command.contains("não", true)) marcarRadio(view, "Não")
@@ -133,7 +144,21 @@ class VoiceCommandProcessor {
                 if (command.contains("não", true)) marcarRadio(view, "Não")
                 else if (command.contains("sim", true)) marcarRadio(view, "Sim")
             }
+            questionTitle.startsWith("Contagem de compressas", true) -> {
+                if (command.contains("entregues", true)) {
+                    val input1 = view.findViewById<EditText>(R.id.input_answer1)
+                    input1?.setText(command.substringAfter("entregues ").trim())
+                    }
+                if (command.contains("conferidas", true)) {
+                    val input2 = view.findViewById<EditText>(R.id.input_answer2)
+                    input2?.setText(command.substringAfter("conferidas ").trim())
+                }
 
+                if (command.contains("não se aplica", true)) marcarRadio(view, "não se aplica")
+                else if (command.contains("não", true)) marcarRadio(view, "Não")
+                else if (command.contains("sim", true)) marcarRadio(view, "Sim")
+            }
+            /*
             questionTitle.startsWith("Contagem de compressas", true) -> {
                 if (command.contains("não se aplica", true)) marcarRadio(view, "não se aplica")
                 else if (command.contains("não", true)) marcarRadio(view, "Não")
@@ -145,7 +170,23 @@ class VoiceCommandProcessor {
 
             questionTitle.startsWith("Compressas conferidas", true) ->
                 input?.setText(command.substringAfter("conferidas ").trim())
+            */
 
+            questionTitle.startsWith("Contagem de instrumentos", true) -> {
+                if (command.contains("entregues", true)) {
+                    val input1 = view.findViewById<EditText>(R.id.input_answer1)
+                    input1?.setText(command.substringAfter("entregues ").trim())
+                }
+                if (command.contains("conferidos", true)) {
+                    val input2 = view.findViewById<EditText>(R.id.input_answer2)
+                    input2?.setText(command.substringAfter("conferidos ").trim())
+                }
+
+                if (command.contains("não se aplica", true)) marcarRadio(view, "não se aplica")
+                else if (command.contains("não", true)) marcarRadio(view, "Não")
+                else if (command.contains("sim", true)) marcarRadio(view, "Sim")
+            }
+            /*
             questionTitle.startsWith("Contagem de instrumentos", true) -> {
                 if (command.contains("não se aplica", true)) marcarRadio(view, "não se aplica")
                 else if (command.contains("não", true)) marcarRadio(view, "Não")
@@ -158,6 +199,22 @@ class VoiceCommandProcessor {
             questionTitle.startsWith("Instrumentos conferidos", true) ->
                 input?.setText(command.substringAfter("conferidos ").trim())
 
+             */
+            questionTitle.startsWith("Contagem de agulhas", true) -> {
+                if (command.contains("entregues", true)) {
+                    val input1 = view.findViewById<EditText>(R.id.input_answer1)
+                    input1?.setText(command.substringAfter("entregues ").trim())
+                }
+                if (command.contains("conferidas", true)) {
+                    val input2 = view.findViewById<EditText>(R.id.input_answer2)
+                    input2?.setText(command.substringAfter("conferidas ").trim())
+                }
+
+                if (command.contains("não se aplica", true)) marcarRadio(view, "não se aplica")
+                else if (command.contains("não", true)) marcarRadio(view, "Não")
+                else if (command.contains("sim", true)) marcarRadio(view, "Sim")
+            }
+            /*
             questionTitle.startsWith("Contagem de agulhas", true) -> {
                 if (command.contains("não se aplica", true)) marcarRadio(view, "não se aplica")
                 else if (command.contains("não", true)) marcarRadio(view, "Não")
@@ -169,6 +226,8 @@ class VoiceCommandProcessor {
 
             questionTitle.startsWith("agulhas conferidas", true) ->
                 input?.setText(command.substringAfter("conferidas ").trim())
+
+             */
 
             questionTitle.startsWith("Amostra cirúrgica identificada adequadamente", true) -> {
                 if (command.contains("não se aplica", true)) marcarRadio(view, "não se aplica")

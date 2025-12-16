@@ -215,7 +215,7 @@ class MainActivity : AppCompatActivity() {
             .setTitle("Fim das perguntas")
             .setMessage("Você completou todas as perguntas!\nSalve o formulário para anexar o PDF.")
             .setPositiveButton("Salvar e Anexar PDF") { _, _ ->
-
+                
                 dataSaver.saveAnswers(stateManager.getFormattedAnswers()) { savedFile ->
                     if (savedFile != null) {
 
@@ -230,6 +230,8 @@ class MainActivity : AppCompatActivity() {
                         textView.text = "Falha ao salvar CSV. Processo cancelado."
                     }
                 }
+                
+                //dataSaver.saveAnswers(stateManager.getFormattedAnswers())
 
                 stateManager.reset()
                 showCurrentQuestion()

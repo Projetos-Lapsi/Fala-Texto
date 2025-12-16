@@ -2,6 +2,7 @@ package ufcg.example.voicesurgery.viewmodel
 
 import ufcg.example.voicesurgery.data.Question
 import ufcg.example.voicesurgery.data.QuestionRepository
+import ufcg.example.voicesurgery.data.ResponseItem
 
 class QuizStateManager {
 
@@ -23,8 +24,8 @@ class QuizStateManager {
         }
     }
 
-    fun saveAnswer(answer: String) {
-        answers[getCurrentQuestion()] = answer
+    fun saveAnswer(answer: List<ResponseItem>) {
+        answers[getCurrentQuestion()] = answer.toString()
     }
 
     // Retorna um map de Título da Pergunta -> Resposta

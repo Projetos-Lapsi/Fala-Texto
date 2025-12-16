@@ -9,7 +9,7 @@ android {
 
     defaultConfig {
         applicationId = "ufcg.example.voicesurgery"
-        minSdk = 28
+        minSdk = 29
         targetSdk = 35
         versionCode = 1
         versionName = "2.1"
