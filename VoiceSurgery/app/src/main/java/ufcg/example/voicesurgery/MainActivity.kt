@@ -4,7 +4,9 @@ import android.app.AlertDialog
 import android.net.Uri
 import android.os.Bundle
 import android.view.View
+import android.view.ViewGroup
 import android.widget.Button
+import android.widget.EditText
 import android.widget.FrameLayout
 import android.widget.TextView
 import android.widget.Toast
@@ -26,6 +28,10 @@ import java.io.File
 
 class MainActivity : AppCompatActivity() {
     annotation class LoginResponse
+
+    //Parou, jogador
+    private var campoSelecionado: EditText? = null
+
 
     // Gerenciadores e Serviços
     private val stateManager = QuizStateManager()
@@ -176,11 +182,21 @@ class MainActivity : AppCompatActivity() {
 
             override fun onResult(text: String) {
                 textView.text = "Você disse: $text"
+
+                // 1. PRIORIDADE: Se o usuário clicou num campo, preenche direto
+                if (campoSelecionado != null) {
+                    campoSelecionado?.setText(text)
+                    campoSelecionado = null // Limpa para a próxima interação
+                    return // Encerra aqui, não processa comandos
+                }
+
+                // 2. DEFAULT: Botão falar, usa a lógica de comandos de voz
                 val question = stateManager.getCurrentQuestion()
                 val shouldGoNext = commandProcessor.processCommand(text, question, currentQuestionView)
 
                 if (shouldGoNext) {
-                    btnNext.performClick()
+                    //btnNext.performClick()
+                    onNextClicked() //Evita dar o balão
                 }
             }
         })
@@ -202,6 +218,9 @@ class MainActivity : AppCompatActivity() {
         currentQuestionView = viewFactory.createView(question, container)
         container.removeAllViews()
         container.addView(currentQuestionView)
+
+        // AQUI ESTÁ O SEGREDO: Configura os cliques nos campos que acabaram de ser criados
+        configurarCliquesNosInputs(currentQuestionView)
     }
 
     private fun saveCurrentAnswer() {
@@ -258,16 +277,28 @@ class MainActivity : AppCompatActivity() {
             .setMessage("Aperte o botão 'Falar' e pronuncie a informação referente ao campo mostrado na parte superior da tela.\n" +
                     "Caso necessário, utilize o teclado virtual para eventuais correções ou marcações para campos objetivos")
             .setPositiveButton("Fechar") { _, _ ->
-                /*salvarRespostasEmCSV()
-                currentIndex = 0
-                answers.clear() // se quiser limpar as respostas, opcional
-                showCurrentQuestion()*/
-                //colocar o migué do enviar arquivo por aqui (no caso foi na função 'salvarrespostas')
+                
             }
             //.setNegativeButton("Não enviar agora", null)
             .create()
 
         alert.show()
+    }
+    private fun configurarCliquesNosInputs(view: View) {
+        // Se a view for um EditText, configura o clique
+        if (view is EditText) {
+            view.setOnClickListener {
+                campoSelecionado = view // Marca este campo como o alvo da voz
+                voiceRecognizer.startListening()
+                //Toast.makeText(this, "Ouvindo para: ${view.hint ?: "este campo"}", Toast.LENGTH_SHORT).show()
+            }
+        }
+        // Se for um container (LinearLayout/Group), procura dentro dele (Recursivo)
+        else if (view is ViewGroup) {
+            for (i in 0 until view.childCount) {
+                configurarCliquesNosInputs(view.getChildAt(i))
+            }
+        }
     }
 
 

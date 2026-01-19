@@ -93,9 +93,9 @@ object QuestionRepository {
                 listOf(),
                 listOf(TextInputQuestion("Cirurgião:"), TextInputQuestion("Anestesista:"), TextInputQuestion("Enfermagem:"))
             ),
-            TextInputQuestion("Recomendações Cirurgião:"),
-            TextInputQuestion("Recomendações Anestesista:"),
-            TextInputQuestion("Recomendações Enfermagem:"),
+            //TextInputQuestion("Recomendações Cirurgião:"),
+            //TextInputQuestion("Recomendações Anestesista:"),
+            //TextInputQuestion("Recomendações Enfermagem:"),
 
             TextInputQuestion("Responsável:"),
             TextInputQuestion("Data:")

@@ -37,7 +37,8 @@
     <EditText
         android:id="@+id/input_answer1"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:onClick="handleClick1"  />
 
 
     <TextView
@@ -51,6 +52,7 @@
     <EditText
         android:id="@+id/input_answer2"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:onClick="handleClick2"  />
 
 </LinearLayout>

@@ -59,21 +59,28 @@ class AnswerExtractor {
                 // 1. EXTRAÇÃO DA RESPOSTA PRINCIPAL (CHECKBOXES)
                 val container = view.findViewById<LinearLayout>(R.id.checkbox_container)
                 val selectedOptions = mutableListOf<String>()
-                for (i in 0 until (container?.childCount ?: 0)) {
-                    val child = container!!.getChildAt(i)
-                    if (child is CheckBox && child.isChecked) {
-                        selectedOptions.add(child.text.toString())
+
+                // Só processa se o container existir
+                container?.let {
+                    for (i in 0 until container.childCount) {
+                        val child = container.getChildAt(i)
+                        if (child is CheckBox && child.isChecked) {
+                            selectedOptions.add(child.text.toString())
+                        }
                     }
                 }
                 // Adiciona a resposta dos Checkboxes como o primeiro item da lista
-                responses.add(ResponseItem(question.title, selectedOptions.joinToString("; ")))
+                //responses.add(ResponseItem(question.title, selectedOptions.joinToString("; ")))
+                if (question.options.isNotEmpty() && selectedOptions.isNotEmpty()) {
+                    responses.add(ResponseItem(question.title, selectedOptions.joinToString("; ")))
+                }
 
                 // 2. EXTRAÇÃO DAS RESPOSTAS DE SUBPERGUNTAS (TEXT INPUTS)
                 val subQuestionsList = question.subQuestions
 
                 // IDs fixos das caixas de texto no layout
-                //val inputIds = listOf(R.id.input_answer1, R.id.input_answer2, R.id.input_answer3)
-                val inputIds = listOf(R.id.input_answer1, R.id.input_answer2)
+                val inputIds = listOf(R.id.input_answer1, R.id.input_answer2, R.id.input_answer3)
+                //val inputIds = listOf(R.id.input_answer1, R.id.input_answer2)
 
                 for (i in subQuestionsList.indices) {
                     if (i < inputIds.size) {
@@ -112,8 +119,8 @@ class AnswerExtractor {
                 val subQuestionsList = question.subQuestions
 
                 // IDs fixos das caixas de texto no layout
-                //val inputIds = listOf(R.id.input_answer1, R.id.input_answer2, R.id.input_answer3)
-                val inputIds = listOf(R.id.input_answer1, R.id.input_answer2)
+                val inputIds = listOf(R.id.input_answer1, R.id.input_answer2, R.id.input_answer3)
+                //val inputIds = listOf(R.id.input_answer1, R.id.input_answer2)
 
                 for (i in subQuestionsList.indices) {
                     if (i < inputIds.size) {

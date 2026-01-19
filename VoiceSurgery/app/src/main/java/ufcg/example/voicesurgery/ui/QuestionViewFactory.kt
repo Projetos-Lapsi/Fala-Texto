@@ -92,6 +92,7 @@ class QuestionViewFactory(private val context: Context) {
             input3.visibility = View.GONE
         }
         */
+        /*
         val title1 = view.findViewById<TextView>(R.id.question_title1)
         title1.text = subQuestionsList[0].title
         val title2 = view.findViewById<TextView>(R.id.question_title2)
@@ -101,6 +102,27 @@ class QuestionViewFactory(private val context: Context) {
             title2.visibility = View.GONE
             val input2 = view.findViewById<EditText>(R.id.input_answer2)
             input2.visibility = View.GONE
+        }
+        */
+        // Mapeamos os IDs de Título e Input
+        val titleIds = listOf(R.id.question_title1, R.id.question_title2, R.id.question_title3)
+        val inputIds = listOf(R.id.input_answer1, R.id.input_answer2, R.id.input_answer3)
+
+        // Iteramos por todos os IDs possíveis (até 3)
+        for (i in 0 until 3) {
+            val titleView = view.findViewById<TextView>(titleIds[i])
+            val inputView = view.findViewById<EditText>(inputIds[i])
+
+            // O uso do ?. (Safe Call) garante que se o findViewById retornar null,
+            // o app não tenta executar o setVisibility e não crasha.
+            if (i < subQuestionsList.size) {
+                titleView?.visibility = View.VISIBLE
+                titleView?.text = subQuestionsList[i].title
+                inputView?.visibility = View.VISIBLE
+            } else {
+                titleView?.visibility = View.GONE
+                inputView?.visibility = View.GONE
+            }
         }
     }
 

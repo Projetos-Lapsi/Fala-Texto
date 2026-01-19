@@ -247,6 +247,24 @@ class VoiceCommandProcessor {
             questionTitle.startsWith("Comunicado a enfermeira para providenciar", true) ->
                 input?.setText(command)
 
+            questionTitle.startsWith("Recomendações importantes na", true) ->{
+                if (command.contains("cirurgião")) {
+                    val input1 = view.findViewById<EditText>(R.id.input_answer1)
+                    input1?.setText(command.substringAfter("cirurgião ").trim())
+                }
+                if (command.contains("anestesista")) {
+                    val input2 = view.findViewById<EditText>(R.id.input_answer2)
+                    //Dá pra fazer uma gambiarra pra captar se vem plural. Eu vejo isso?
+                    if (command.contains("anestesistas"))    input2?.setText(command.substringAfter("anestesistas ").trim())
+                    else    input2?.setText(command.substringAfter("anestesista ").trim())
+                }
+                if (command.contains("enfermagem")) {
+                    val input3 = view.findViewById<EditText>(R.id.input_answer3)
+                    input3?.setText(command.substringAfter("enfermagem ").trim())
+                }
+
+            }
+            /*
             questionTitle.startsWith("Recomendações Cirurgião", true) ->
                 input?.setText(command.substringAfter("cirurgião ").trim())
 
@@ -255,6 +273,7 @@ class VoiceCommandProcessor {
 
             questionTitle.startsWith("Recomendações enfermagem", true) ->
                 input?.setText(command.substringAfter(" ").trim())
+            */
 
 
 

@@ -65,8 +65,20 @@ class CsvDataSaver(private val context: Context) {
                 //Log.d("CSV_DATA_SAVER", "Pergunta: ${pergunta.length} caracteres. Resposta: ${resposta.length}")
                 //writer.println("\"$pergunta\",\"$resposta\"")
                 val separados = parseResponseItems(resposta)
-                separados.forEach { writer.println("\"${it.title}\",\"${it.answer}\"") }
+                separados.forEach { item ->
+                    val novaPergunta = when(item.title){
+                        "Cirurgião:" -> "Recomendações Cirurgião:"
+                        "Anestesista:" -> "Recomendações Anestesista:"
+                        "Enfermagem:" -> "Recomendações Enfermagem:"
+                        "Antes da Indução Anestésica" -> "parte 1"
+                        "Antes da Incisão Cirúrgica" -> "parte 2"
+                        "Antes da Saída do Paciente da Sala de Cirurgia" -> "parte 3"
+                        else -> item.title
+                    }
+
+                    writer.println("\"$novaPergunta\",\"${item.answer}\"") }
             }
+
 
             writer.flush()
             writer.close()
