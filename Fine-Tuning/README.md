@@ -8,6 +8,7 @@ Para instalar as dependências do arquivo requirements.txt no Linux, utilize o t
 
 ## Passo a Passo 
 Abra o terminal e navegue até a pasta do seu projeto:
+
 por exemplo: 
 cd /caminho/do/seu/projeto
 
