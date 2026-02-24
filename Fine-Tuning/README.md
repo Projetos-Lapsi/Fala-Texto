@@ -9,20 +9,18 @@ Para instalar as dependências do arquivo requirements.txt no Linux, utilize o t
 ## Passo a Passo 
 Abra o terminal e navegue até a pasta do seu projeto:
 
-
-cd /caminho/do/seu/projeto
+--cd /caminho/do/seu/projeto
 
 Crie e ative um ambiente virtual (opcional, mas recomendado):
 
-!NOTE
-python3 -m venv venv #Comando para criar o ambiente virtual
-source venv/bin/activate #Comando para ativar o ambiente Virtual
+--python3 -m venv venv #Comando para criar o ambiente virtual
+--source venv/bin/activate #Comando para ativar o ambiente Virtual
 
 Instale as dependências:
-[!NOTE]
-pip install -r requirements.txt
 
-[!NOTE]
-Em seguida, clone o repositório do fine-tuning e preencha "login(token="*")" no local do asterisco insira o token criado no huggingface, após estes passos já é possível começar o treinamento. Obs:Este treinamento foi realizado focado em (GPU) não em (CPU)
-[!NOTE]
-Para avaliar seu modelo treinado utilize o arquivo "Avaliarmodelo.py" não á necessidade de instalar nenhuma nova depêndencia, os passos a serem tomados são, preencher a váriável (MODEL_PATH ="Caminho para a pasta aonde se encontrar seu modelo treinado localmente") e baixar arquivos de áudios alvos com base nos dados utilizado para o treinamento e encaminhar estes áudios na variável (AUDIO_FILE_PATH = "CAMINHO DO SEU ARQUIVO DE ÁUDIO").
+--pip install -r requirements.txt
+
+
+  Em seguida, clone o repositório do fine-tuning e preencha "login(token="*")" no local do asterisco insira o token criado no huggingface, após estes passos já é possível começar o treinamento. Obs:Este treinamento foi realizado focado em (GPU) não em (CPU)
+
+  Para avaliar seu modelo treinado utilize o arquivo "Avaliarmodelo.py" não á necessidade de instalar nenhuma nova depêndencia, os passos a serem tomados são, preencher a váriável (MODEL_PATH ="Caminho para a pasta aonde se encontrar seu modelo treinado localmente") e baixar arquivos de áudios alvos com base nos dados utilizado para o treinamento e encaminhar estes áudios na variável (AUDIO_FILE_PATH = "CAMINHO DO SEU ARQUIVO DE ÁUDIO").
