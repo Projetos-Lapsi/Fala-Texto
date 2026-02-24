@@ -14,6 +14,7 @@ Abra o terminal e navegue até a pasta do seu projeto:
 Crie e ative um ambiente virtual (opcional, mas recomendado):
 
 --python3 -m venv venv #Comando para criar o ambiente virtual
+
 --source venv/bin/activate #Comando para ativar o ambiente Virtual
 
 Instale as dependências:
