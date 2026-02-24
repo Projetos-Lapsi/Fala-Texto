@@ -13,10 +13,12 @@ por exemplo:
 cd /caminho/do/seu/projeto
 
 Crie e ative um ambiente virtual (opcional, mas recomendado):
+
 python3 -m venv venv #Comando para criar o ambiente virtual
 source venv/bin/activate #Comando para ativar o ambiente Virtual
 
 Instale as dependências:
+
 pip install -r requirements.txt
 
 Em seguida, clone o repositório do fine-tuning e preencha "login(token="*")" no local do asterisco insira o token criado no huggingface, após estes passos já é possível começar o treinamento. Obs:Este treinamento foi realizado focado em (GPU) não em (CPU)
