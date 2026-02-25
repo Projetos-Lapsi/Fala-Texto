@@ -4,8 +4,6 @@
   <img width="350" height="2000" alt="Image" src="https://github.com/user-attachments/assets/1d1e4d24-db10-4e1a-8598-04288cc1a91a" />
 </div>
 
-Para instalar as dependências do arquivo requirements.txt no Linux, utilize o terminal e o gerenciador de pacotes pip com o comando pip "install -r requirements.txt". Recomenda-se criar um ambiente virtual (venv) antes para evitar conflitos com pacotes globais do sistema.
-
 ## Passo a Passo 
 Clique na opção do APK que você deseja para instalação.
 
