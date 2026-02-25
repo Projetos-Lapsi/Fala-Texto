@@ -7,15 +7,19 @@
 ## Passo a Passo para Instalação
 
 1. Escolha o APK
-  Clique na opção do APK que você deseja instalar.
 
-2. Baixe o arquivo
+   Clique na opção do APK que você deseja instalar.
+
+3. Baixe o arquivo
+
   Na página que abrir, clique em “View Raw” e confirme o download quando o pop-up aparecer.
 
-3. Acesse o arquivo baixado
+4. Acesse o arquivo baixado
+
   Após o download, abra a pasta Downloads do seu dispositivo, localize o arquivo APK e clique nele para iniciar a instalação.
 
   **OBS:** O sistema pode exibir avisos sobre software potencialmente malicioso. Isso ocorre porque o aplicativo ainda é um protótipo e não está publicado na loja oficial.
 
 4. Abra o aplicativo
+
   Após instalado, localize o app entre seus aplicativos e toque nele para começar a usar.
