@@ -18,7 +18,7 @@
 
    Após o download, abra a pasta Downloads do seu dispositivo, localize o arquivo APK e clique nele para iniciar a instalação.
 
-   **OBS:** O sistema pode exibir avisos sobre software potencialmente malicioso. Isso ocorre porque o aplicativo ainda é um protótipo e não está publicado na loja oficial.
+>   **OBS:** O sistema pode exibir avisos sobre software potencialmente malicioso. Isso ocorre porque o aplicativo ainda é um protótipo e não está publicado na loja oficial.
 
 4. Abra o aplicativo
 
