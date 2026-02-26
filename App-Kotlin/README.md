@@ -12,4 +12,4 @@
 
 2. VoiceSurgeryWhisper
 
-   Projeto adaptado para transcrição com o Whisper, enviando o áudio para o servidor para transcrição. As demais funcionalidades são semelhantes às do projeto acima.
+   Projeto adaptado para transcrição com o Whisper, enviando o áudio para o servidor que usa a opção *open source*. As demais funcionalidades são semelhantes às do projeto acima.
