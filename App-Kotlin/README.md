@@ -4,6 +4,12 @@
   <img width="350" height="2000" alt="Image" src="https://github.com/user-attachments/assets/1d1e4d24-db10-4e1a-8598-04288cc1a91a" />
 </div>
 
+
+## Ambiente de desenvolvimento utilizado
+
+Estes códigos foram escritos no *Android Studio*, *IDE* oficial para desenvolvimento de aplicativos *Android*. 
+
+
 ## Projetos presentes nesta pasta
 
 1. VoiceSurgeryGoogleAPI
