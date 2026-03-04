@@ -1,2 +1,0 @@
-|                Pasta/Arquivo               | Uso|
-|                .gradle/               | Diretório de cache do projeto do Gradle<br>Gerenciada pelo Gradle e contém a distribuição do Gradle, o cache do projeto e os arquivos de configuração transferidos por download.<br>Não altere os arquivos neste diretório.|
