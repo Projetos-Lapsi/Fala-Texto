@@ -1,6 +1,20 @@
 ![Infografico Projeto Fala-texto](/infografico-projeto-fala-texto.jpg)
 
 
+#### Descrição dos Componentes (Arquitetura)
+
+O projeto segue uma arquitetura baseada em microserviços/módulos para processamento de áudio e integração com dados de saúde:
+
+1. Interface de Captura (Frontend/Cliente) - Módulo responsável por captar o áudio do profissional de saúde (médicos/enfermeiros) em tempo real.
+
+2. Motor de Reconhecimento de Fala (Speech-to-Text) - Utiliza modelos de Deep Learning (comumente baseados em bibliotecas como TensorFlow/PyTorch ou APIs como Whisper) para converter o sinal sonoro em texto.
+
+3. Módulo de Validação Clínica - Um componente de inteligência que analisa o texto transcrito em busca de termos médicos e verifica a consistência dos dados conforme eles são ditados.
+
+4. Integração RNDS (Rede Nacional de Dados em Saúde) - Módulo de saída que formata o texto processado para os padrões exigidos pelos Sistemas de Informação em Saúde brasileiros.
+
+5. Banco de Dados/Armazenamento - Repositório para logs, modelos de áudio treinados e históricos de transcrição.
+
 [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](LICENSE)
 
 # Fala-Texto
