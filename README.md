@@ -227,6 +227,8 @@ Distribuído sob a licença [Apache 2.0](LICENSE).
 >>>>>>> Stashed changes
 
 
+## Rascunho: Proposta de Arquiteture Alto-nível
+
 ```mermaid
 graph TD
     %% Define styles for clarity
@@ -246,7 +248,7 @@ graph TD
 
     %% Domain/Business Layer
     subgraph Domain ["Camada de Negócio (Kotlin Coroutines)"]
-        E -->|Dispara Extração (IO Dispatcher)| F(FormExtractionUseCase);
+        E -->|"Dispara Extração (IO Dispatcher)"| F(FormExtractionUseCase);
         F -->|Processar Uri| G[FormExtractionRepository];
         
         subgraph Native_Bridge ["Ponte JNI / Wrapper Kotlin"]
@@ -255,7 +257,7 @@ graph TD
         
         H -->|JSON Result| G;
         G -->|Domain Object| F;
-        F -->|UI State (Success/Error)| E;
+        F -->|"UI State (Success/Error)"| E;
     end
 
     %% Native/AI Layer
@@ -266,8 +268,8 @@ graph TD
 
     %% Storage Layer
     subgraph Storage ["Armazenamento Interno"]
-        K[(Arquivos de Modelo .gguf\nLlava + MMPROJ)] <-->|Carregar em Memória| I;
-        L[(Cache de Imagens Temporárias)] <-->|Ler Imagem| G;
+        K[("Arquivos de Modelo .gguf\nLlava + MMPROJ")] <-->|Carregar em Memória| I;
+        L[("Cache de Imagens Temporárias")] <-->|Ler Imagem| G;
     end
 
     %% Apply Classes
