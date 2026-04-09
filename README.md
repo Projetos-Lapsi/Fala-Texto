@@ -1,7 +1,30 @@
 ![Infografico Projeto Fala-texto](/infografico-projeto-fala-texto.jpg)
+[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](LICENSE)
 
+---
 
-#### Descrição dos Componentes (Arquitetura)
+## Sumário
+
+- [Sumário](#sumário)
+- [Assistente de Preenchimento de Formulário Médico](#assistente-de-preenchimento-de-formulário-médico)
+  - [Descrição dos Componentes (Arquitetura)](#descrição-dos-componentes-arquitetura)
+- [Visão Geral](#visão-geral)
+- [Arquitetura](#arquitetura)
+- [Estrutura do Repositório](#estrutura-do-repositório)
+- [Componentes](#componentes)
+  - [App Android — Kotlin (principal)](#app-android--kotlin-principal)
+  - [Backend FastAPI](#backend-fastapi)
+  - [Fine-Tuning do Whisper](#fine-tuning-do-whisper)
+  - [App Kivy (legado)](#app-kivy-legado)
+- [Instalação do APK (usuário final)](#instalação-do-apk-usuário-final)
+- [Licença](#licença)
+- [Rascunho: Proposta de Arquiteture Alto-nível](#rascunho-proposta-de-arquiteture-alto-nível)
+  
+## Assistente de Preenchimento de Formulário Médico
+
+>Sistema baseado em ASR (Automatic Speech Recognition) para documentação clínica. Profissionais de saúde gravam informações por voz e o sistema transcreve, valida e preenche automaticamente formulários médicos.
+
+### Descrição dos Componentes (Arquitetura)
 
 O projeto segue uma arquitetura baseada em microserviços/módulos para processamento de áudio e integração com dados de saúde:
 
@@ -15,36 +38,9 @@ O projeto segue uma arquitetura baseada em microserviços/módulos para processa
 
 5. Banco de Dados/Armazenamento - Repositório para logs, modelos de áudio treinados e históricos de transcrição.
 
-[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](LICENSE)
-
-# Fala-Texto
-
-Sistema de conversão de fala em texto para documentação clínica. Profissionais de saúde gravam informações por voz e o sistema transcreve, valida e preenche automaticamente formulários médicos em PDF.
-
----
-
-## Sumário
-
-- [Fala-Texto](#fala-texto)
-  - [Sumário](#sumário)
-  - [Visão Geral](#visão-geral)
-  - [Arquitetura](#arquitetura)
-  - [Estrutura do Repositório](#estrutura-do-repositório)
-  - [Componentes](#componentes)
-    - [App Android — Kotlin (principal)](#app-android--kotlin-principal)
-    - [Backend FastAPI](#backend-fastapi)
-    - [Fine-Tuning do Whisper](#fine-tuning-do-whisper)
-    - [App Kivy (legado)](#app-kivy-legado)
-  - [Instalação do APK (usuário final)](#instalação-do-apk-usuário-final)
-  - [Licença](#licença)
-
 ---
 
 ## Visão Geral
-
-<div align="center">
-  <img width="350" alt="Fala-Texto App" src="https://github.com/user-attachments/assets/1d1e4d24-db10-4e1a-8598-04288cc1a91a" />
-</div>
 
 O Fala-Texto foi desenvolvido para reduzir a carga de trabalho de profissionais de saúde no preenchimento de documentos clínicos. Com ele é possível:
 
@@ -279,3 +275,7 @@ graph TD
     class I,J native;
     class K,L storage;
 ```
+
+<div align="right">
+  <img width="350" alt="Fala-Texto App" src="https://github.com/user-attachments/assets/1d1e4d24-db10-4e1a-8598-04288cc1a91a" />
+</div>
