@@ -1,6 +1,48 @@
 ![Infografico Projeto Fala-texto](/infografico-projeto-fala-texto.jpg)
 [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](LICENSE)
 
+<!--
+```mermaid
+erDiagram
+    ENTITY ||--o{ FORM : "possui"
+    FORM ||--o{ SECTION : "contem (parentItem)"
+    SECTION ||--o{ SECTION : "pode ter (subSections)"
+    SECTION ||--o{ QUESTION : "contem (parentItem)"
+    
+    ENTITY {
+        string id PK
+        string name
+        string description
+        string_array tags
+    }
+
+    FORM {
+        string id PK
+        string name
+        string_array sections_ids FK
+        object metadata
+    }
+
+    SECTION {
+        string id PK
+        string title
+        string parentItem FK "ID do Form ou Section"
+        string_array subSections_ids FK
+        string_array questions_ids FK
+    }
+
+    QUESTION {
+        string id PK
+        string parentItem FK "ID da Section"
+        string title
+        string type "ABERTA, ESTIMULADA, etc"
+        object_array options
+        object_array compositeFields
+    }
+
+```
+--->
+
 ---
 
 ## Sumário
